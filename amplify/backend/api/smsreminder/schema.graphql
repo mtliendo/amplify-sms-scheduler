@@ -1,0 +1,14 @@
+type Text
+  @model
+  @auth(rules: [{ allow: owner }])
+  @key(
+    name: "textsByDeliveryTime"
+    fields: ["deliveryTime"]
+    queryField: "textsByDeliveryTime"
+  ) {
+  id: ID!
+  phoneNumber: String!
+  message: String!
+  deliveryTime: AWSDateTime!
+  ttl: Int!
+}
