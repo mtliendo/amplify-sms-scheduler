@@ -24,8 +24,6 @@ function MyApp({ Component, pageProps }) {
   const [state, dispatch] = React.useReducer(authReducer, initialState)
 
   React.useEffect(() => {
-    //this will fire anytime a user switches auth scenarios
-    // https://docs.amplify.aws/ui/auth/authenticator/q/framework/react#methods--enums
     onAuthUIStateChange((nextAuthState, data) => {
       dispatch({
         type: 'authStateChange',
