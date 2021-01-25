@@ -25,9 +25,11 @@ export default function Home({ userPhoneNumber }) {
       phoneNumber: userPhoneNumber,
       message: textValue,
       deliveryTime: dateValue.toISOString(),
-      ttl: add(Math.floor(dateValue.getTime() / 1000), {
-        minutes: 5,
-      }).getTime(),
+      ttl: Math.floor(
+        add(dateValue.getTime(), {
+          minutes: 5,
+        }).getTime() / 1000
+      ),
     }
     const data = await API.graphql({
       query: createText,
